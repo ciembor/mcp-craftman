@@ -1,6 +1,6 @@
 {
   "name": "@mcp-craftman/cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": false,
   "description": "CLI for generating and validating MCP Craftman projects.",
   "type": "module",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@mcp-craftman/core": "workspace:^",
-    "@mcp-craftman/node": "workspace:^"
+    "@mcp-craftman/node": "workspace:^",
+    "typescript": "^5.8.3"
   }
 }

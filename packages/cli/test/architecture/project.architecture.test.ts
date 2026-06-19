@@ -40,6 +40,7 @@ describe("@mcp-craftman/cli architecture", () => {
         "../../src/index.ts",
         "../../src/main.ts",
         "../../src/commands/generate-command.ts",
+        "../../src/code-generator/registry-updater.ts",
         "../../src/commands/init-command.ts",
         "../../src/commands/quality-command.ts",
         "../../src/code-generator/feature-template.ts",

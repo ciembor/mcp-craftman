@@ -120,6 +120,8 @@ parseInitArgs
 runQuality
 getQualitySteps
 createFeatureFiles
+createGeneratedNames
+updateRegistrySource
 createProjectFiles
 installPreCommitHook
 findGitRoot
@@ -151,4 +153,10 @@ src/features/source-status/mcp/source-status.tool.ts
 test/contracts/source-status.contract.test.ts
 ```
 
-It refuses to overwrite existing files. Register the generated tool explicitly in `src/mcp/registry.ts` after reviewing the skeleton.
+It refuses to overwrite existing files. By default it also updates `src/mcp/registry.ts` by adding the feature import and tool entry through a TypeScript AST-based edit.
+
+Skip registry edits when you want to wire the tool manually:
+
+```bash
+mcp-craftman generate feature source-status --no-register
+```

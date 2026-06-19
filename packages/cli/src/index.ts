@@ -3,6 +3,8 @@ export { generateFeature, parseGenerateArgs } from "./commands/generate-command.
 export { initProject, parseInitArgs } from "./commands/init-command.js";
 export { runQuality } from "./commands/quality-command.js";
 export { createFeatureFiles } from "./code-generator/feature-template.js";
+export { createGeneratedNames } from "./code-generator/name-style.js";
+export { updateRegistrySource } from "./code-generator/registry-updater.js";
 export { getQualitySteps } from "./quality/quality-steps.js";
 export { createProjectFiles } from "./project-generator/create-project-files.js";
 export { installPreCommitHook } from "./git-hooks/install-pre-commit-hook.js";

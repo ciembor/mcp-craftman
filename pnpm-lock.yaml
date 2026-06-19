@@ -47,6 +47,9 @@ importers:
       '@mcp-craftman/node':
         specifier: workspace:^
         version: link:../node
+      typescript:
+        specifier: ^5.8.3
+        version: 5.9.3
 
   packages/core: {}
 

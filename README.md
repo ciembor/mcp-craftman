@@ -8,7 +8,7 @@ Published packages:
 - `@mcp-craftman/node`
 - `@mcp-craftman/cli`
 
-Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.2`.
+Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.3`.
 
 ## Packages
 
@@ -67,13 +67,13 @@ The generated project starts with a `health_status` tool and quality configurati
 
 ```bash
 mcp-craftman init <path> --name <name>
-mcp-craftman generate feature <name> [--path <path>]
+mcp-craftman generate feature <name> [--path <path>] [--no-register]
 mcp-craftman quality
 ```
 
 `init` writes a new server project and installs the generated pre-commit hook.
 
-`generate feature` writes a read-only feature skeleton into an existing server project.
+`generate feature` writes a read-only feature skeleton into an existing server project and updates `src/mcp/registry.ts` by default.
 
 `quality` runs the standard generated-project quality pipeline.
 
@@ -84,6 +84,7 @@ These are importable from `@mcp-craftman/cli`:
 ```ts
 import {
   createFeatureFiles,
+  createGeneratedNames,
   createProjectFiles,
   findGitRoot,
   generateFeature,
@@ -94,6 +95,7 @@ import {
   parseInitArgs,
   parseGenerateArgs,
   runQuality,
+  updateRegistrySource,
 } from "@mcp-craftman/cli";
 ```
 

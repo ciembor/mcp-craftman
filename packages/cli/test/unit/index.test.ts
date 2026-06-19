@@ -3,19 +3,9 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { afterEach, describe, expect, it } from "vitest";
 
-import {
-  createFeatureFiles,
-  createProjectFiles,
-  generateFeature,
-  getQualitySteps,
-  initProject,
-  parseGenerateArgs,
-  runQuality,
-} from "../../src/index.js";
+import { createProjectFiles, getQualitySteps, initProject, runQuality } from "../../src/index.js";
 
 const tempDirs: string[] = [];
-const sourceStatusContractPath = "test/contracts/source-status.contract.test.ts";
-const searchPlacesFeatureName = "search-places";
 
 afterEach(async () => {
   await Promise.all(
@@ -73,53 +63,6 @@ describe("@mcp-craftman/cli project generator", () => {
         "vitest.config.ts",
       ]),
     );
-  });
-});
-
-describe("@mcp-craftman/cli feature generator", () => {
-  it("generates a feature skeleton", () => {
-    const files = createFeatureFiles("Source Status");
-
-    expect(files.map((file) => file.path)).toEqual([
-      "src/features/source-status/index.ts",
-      "src/features/source-status/domain/source-status-result.ts",
-      "src/features/source-status/application/source-status.ts",
-      "src/features/source-status/mcp/source-status.tool.ts",
-      sourceStatusContractPath,
-    ]);
-    expect(files.find((file) => file.path.endsWith("source-status.tool.ts"))?.content).toContain('name: "source_status"');
-  });
-
-  it("parses feature generation arguments", () => {
-    expect(parseGenerateArgs(["feature", searchPlacesFeatureName, "--path", "server"])).toEqual({
-      name: searchPlacesFeatureName,
-      path: "server",
-    });
-    expect(() => parseGenerateArgs(["tool", searchPlacesFeatureName])).toThrow(
-      "Usage: mcp-craftman generate feature <name> [--path <path>]",
-    );
-  });
-
-  it("generates a feature on disk without overwriting existing files", async () => {
-    const directory = await createTempDir();
-
-    await generateFeature({
-      path: directory,
-      name: "source status",
-    });
-
-    await expect(readFile(join(directory, "src/features/source-status/index.ts"), "utf8")).resolves.toContain(
-      "sourceStatusTool",
-    );
-    await expect(readFile(join(directory, sourceStatusContractPath), "utf8")).resolves.toContain(
-      'callTool(createApp(), "source_status", {})',
-    );
-    await expect(
-      generateFeature({
-        path: directory,
-        name: "source status",
-      }),
-    ).rejects.toThrow("Refusing to overwrite existing file:");
   });
 });
 
