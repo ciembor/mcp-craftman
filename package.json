@@ -1,0 +1,36 @@
+{
+  "name": "mcp-craftman-monorepo",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Monorepo for MCP Craftman packages.",
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "scripts": {
+    "build": "pnpm -r build",
+    "prepare": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git config core.hooksPath .githooks || true",
+    "test": "pnpm -r test",
+    "quality": "pnpm run quality:knip && pnpm run quality:types && pnpm run quality:lint && pnpm run quality:deps && pnpm run quality:architecture && pnpm run quality:coverage",
+    "quality:architecture": "vitest run packages/core/test/architecture packages/node/test/architecture packages/cli/test/architecture",
+    "quality:coverage": "vitest run --coverage packages/core/test/unit packages/node/test/unit packages/cli/test/unit",
+    "quality:deps": "dependency-cruiser --config dependency-cruiser.config.cjs packages/core/src packages/node/src packages/cli/src packages/core/test packages/node/test packages/cli/test",
+    "quality:knip": "knip --config knip.json --workspace packages/core --workspace packages/node --workspace packages/cli",
+    "quality:lint": "eslint packages --fix",
+    "quality:types": "tsc --noEmit -p packages/core/tsconfig.json && tsc --noEmit -p packages/node/tsconfig.json && tsc --noEmit -p packages/cli/tsconfig.json",
+    "release:framework": "scripts/release-framework.sh"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.2.4",
+    "@types/node": "^24.0.3",
+    "dependency-cruiser": "^13.1.5",
+    "eslint": "^9.29.0",
+    "eslint-plugin-sonarjs": "^3.0.3",
+    "knip": "^5.61.3",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.1",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

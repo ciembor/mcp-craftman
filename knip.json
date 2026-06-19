@@ -1,0 +1,40 @@
+{
+  "workspaces": {
+    "packages/cli": {
+      "entry": [
+        "src/cli.ts",
+        "src/index.ts",
+        "test/**/*.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "ignoreDependencies": [
+        "@mcp-craftman/core",
+        "@mcp-craftman/node"
+      ]
+    },
+    "packages/core": {
+      "entry": [
+        "src/index.ts",
+        "test/**/*.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ]
+    },
+    "packages/node": {
+      "entry": [
+        "src/index.ts",
+        "test/**/*.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "ignoreDependencies": []
+    }
+  }
+}

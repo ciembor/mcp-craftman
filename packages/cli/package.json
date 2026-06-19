@@ -1,0 +1,33 @@
+{
+  "name": "@mcp-craftman/cli",
+  "version": "0.1.1",
+  "private": false,
+  "description": "CLI for generating and validating MCP Craftman projects.",
+  "type": "module",
+  "bin": {
+    "mcp-craftman": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/cli.ts --format esm --dts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@mcp-craftman/core": "workspace:^",
+    "@mcp-craftman/node": "workspace:^"
+  }
+}

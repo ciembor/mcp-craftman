@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "paths": {
+      "@mcp-craftman/cli": [
+        "packages/cli/src/index.ts"
+      ],
+      "@mcp-craftman/core": [
+        "packages/core/src/index.ts"
+      ],
+      "@mcp-craftman/node": [
+        "packages/node/src/index.ts"
+      ]
+    },
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  }
+}
