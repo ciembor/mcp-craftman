@@ -57,7 +57,7 @@ Current `latest` versions:
 ```text
 @mcp-craftman/core@0.1.1
 @mcp-craftman/node@0.1.1
-@mcp-craftman/cli@0.1.3
+@mcp-craftman/cli@0.1.4
 ```
 
 ## Notes

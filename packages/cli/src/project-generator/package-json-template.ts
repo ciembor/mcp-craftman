@@ -1,5 +1,5 @@
 const frameworkVersion = "^0.1.1";
-const cliVersion = "^0.1.3";
+const cliVersion = "^0.1.4";
 
 export function createPackageJson(packageName: string): string {
   return `${JSON.stringify(

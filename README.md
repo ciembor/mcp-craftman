@@ -8,7 +8,7 @@ Published packages:
 - `@mcp-craftman/node`
 - `@mcp-craftman/cli`
 
-Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.3`.
+Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.4`.
 
 ## Packages
 
