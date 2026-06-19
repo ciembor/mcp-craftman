@@ -2,6 +2,15 @@
 
 `mcp-craftman init <path> --name <name>` creates a complete MCP server project.
 
+The `mcp-craftman` binary currently has two commands:
+
+```text
+init
+quality
+```
+
+Additional exports from `@mcp-craftman/cli` are library helpers, not terminal commands.
+
 ## Layout
 
 ```text
@@ -96,3 +105,20 @@ dependency-cruiser --config dependency-cruiser.config.cjs .
 vitest run test/architecture
 vitest run --coverage test/unit test/integration test/contracts
 ```
+
+## Programmatic API
+
+`@mcp-craftman/cli` also exports:
+
+```text
+main
+initProject
+parseInitArgs
+runQuality
+getQualitySteps
+createProjectFiles
+installPreCommitHook
+findGitRoot
+```
+
+Use these from tests or custom tooling when you need the same behavior without shelling out to the binary.

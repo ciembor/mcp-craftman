@@ -35,6 +35,8 @@ Current release: `0.1.1`.
 - generated project templates;
 - quality command orchestration.
 
+The CLI binary intentionally exposes only two terminal commands. The package also exports helper APIs for tests, tooling, and custom project generators.
+
 ## Requirements
 
 - Node.js `>=20.19.0`
@@ -59,6 +61,36 @@ pnpm quality
 ```
 
 The generated project starts with a `health_status` tool and quality configuration.
+
+## CLI Commands
+
+```bash
+mcp-craftman init <path> --name <name>
+mcp-craftman quality
+```
+
+`init` writes a new server project and installs the generated pre-commit hook.
+
+`quality` runs the standard generated-project quality pipeline.
+
+## CLI Package API
+
+These are importable from `@mcp-craftman/cli`:
+
+```ts
+import {
+  createProjectFiles,
+  findGitRoot,
+  getQualitySteps,
+  initProject,
+  installPreCommitHook,
+  main,
+  parseInitArgs,
+  runQuality,
+} from "@mcp-craftman/cli";
+```
+
+They are not separate terminal commands; they are public helpers for tests, wrappers, and automation.
 
 ## Minimal App
 
