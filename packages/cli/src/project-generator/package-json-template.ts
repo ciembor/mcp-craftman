@@ -1,4 +1,5 @@
 const frameworkVersion = "^0.1.1";
+const cliVersion = "^0.1.2";
 
 export function createPackageJson(packageName: string): string {
   return `${JSON.stringify(
@@ -17,7 +18,7 @@ export function createPackageJson(packageName: string): string {
         "@mcp-craftman/node": frameworkVersion,
       },
       devDependencies: {
-        "@mcp-craftman/cli": frameworkVersion,
+        "@mcp-craftman/cli": cliVersion,
         "@types/node": "^24.0.3",
         "@vitest/coverage-v8": "^3.2.4",
         "dependency-cruiser": "^13.1.5",

@@ -5,6 +5,7 @@ describe("@mcp-craftman/cli public API", () => {
   it("keeps public exports separate from the executable", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli.ts",
+      "code-generator",
       "commands",
       "git-hooks",
       "index.ts",

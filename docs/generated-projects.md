@@ -2,10 +2,11 @@
 
 `mcp-craftman init <path> --name <name>` creates a complete MCP server project.
 
-The `mcp-craftman` binary currently has two commands:
+The `mcp-craftman` binary currently has these commands:
 
 ```text
 init
+generate feature
 quality
 ```
 
@@ -112,13 +113,42 @@ vitest run --coverage test/unit test/integration test/contracts
 
 ```text
 main
+generateFeature
 initProject
+parseGenerateArgs
 parseInitArgs
 runQuality
 getQualitySteps
+createFeatureFiles
 createProjectFiles
 installPreCommitHook
 findGitRoot
 ```
 
 Use these from tests or custom tooling when you need the same behavior without shelling out to the binary.
+
+## Generate A Feature
+
+Inside an existing generated server:
+
+```bash
+mcp-craftman generate feature source-status
+```
+
+From another working directory:
+
+```bash
+mcp-craftman generate feature source-status --path ./my-server
+```
+
+The command creates:
+
+```text
+src/features/source-status/index.ts
+src/features/source-status/domain/source-status-result.ts
+src/features/source-status/application/source-status.ts
+src/features/source-status/mcp/source-status.tool.ts
+test/contracts/source-status.contract.test.ts
+```
+
+It refuses to overwrite existing files. Register the generated tool explicitly in `src/mcp/registry.ts` after reviewing the skeleton.

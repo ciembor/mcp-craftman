@@ -7,6 +7,7 @@ describe("@mcp-craftman/cli architecture", () => {
   it("keeps the public API behind one barrel entrypoint and a separate executable", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli.ts",
+      "code-generator",
       "commands",
       "git-hooks",
       "index.ts",
@@ -38,8 +39,10 @@ describe("@mcp-craftman/cli architecture", () => {
       [
         "../../src/index.ts",
         "../../src/main.ts",
+        "../../src/commands/generate-command.ts",
         "../../src/commands/init-command.ts",
         "../../src/commands/quality-command.ts",
+        "../../src/code-generator/feature-template.ts",
         "../../src/project-generator/create-project-files.ts",
         "../../src/project-generator/source-template.ts",
         "../../src/quality/quality-runner.ts",

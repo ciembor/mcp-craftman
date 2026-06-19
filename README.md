@@ -8,7 +8,7 @@ Published packages:
 - `@mcp-craftman/node`
 - `@mcp-craftman/cli`
 
-Current release: `0.1.1`.
+Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.2`.
 
 ## Packages
 
@@ -31,11 +31,12 @@ Current release: `0.1.1`.
 `@mcp-craftman/cli`
 
 - `mcp-craftman init`;
+- `mcp-craftman generate feature`;
 - `mcp-craftman quality`;
 - generated project templates;
 - quality command orchestration.
 
-The CLI binary intentionally exposes only two terminal commands. The package also exports helper APIs for tests, tooling, and custom project generators.
+The CLI binary exposes a small set of terminal commands. The package also exports helper APIs for tests, tooling, and custom project generators.
 
 ## Requirements
 
@@ -66,10 +67,13 @@ The generated project starts with a `health_status` tool and quality configurati
 
 ```bash
 mcp-craftman init <path> --name <name>
+mcp-craftman generate feature <name> [--path <path>]
 mcp-craftman quality
 ```
 
 `init` writes a new server project and installs the generated pre-commit hook.
+
+`generate feature` writes a read-only feature skeleton into an existing server project.
 
 `quality` runs the standard generated-project quality pipeline.
 
@@ -79,13 +83,16 @@ These are importable from `@mcp-craftman/cli`:
 
 ```ts
 import {
+  createFeatureFiles,
   createProjectFiles,
   findGitRoot,
+  generateFeature,
   getQualitySteps,
   initProject,
   installPreCommitHook,
   main,
   parseInitArgs,
+  parseGenerateArgs,
   runQuality,
 } from "@mcp-craftman/cli";
 ```

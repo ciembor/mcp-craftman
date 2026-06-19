@@ -52,12 +52,12 @@ Publish packages in dependency order:
 @mcp-craftman/cli
 ```
 
-For the `0.1.1` release, `latest` points at:
+Current `latest` versions:
 
 ```text
 @mcp-craftman/core@0.1.1
 @mcp-craftman/node@0.1.1
-@mcp-craftman/cli@0.1.1
+@mcp-craftman/cli@0.1.2
 ```
 
 ## Notes

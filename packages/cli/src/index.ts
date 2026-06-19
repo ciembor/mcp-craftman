@@ -1,10 +1,14 @@
 export { main } from "./main.js";
+export { generateFeature, parseGenerateArgs } from "./commands/generate-command.js";
 export { initProject, parseInitArgs } from "./commands/init-command.js";
 export { runQuality } from "./commands/quality-command.js";
+export { createFeatureFiles } from "./code-generator/feature-template.js";
 export { getQualitySteps } from "./quality/quality-steps.js";
 export { createProjectFiles } from "./project-generator/create-project-files.js";
 export { installPreCommitHook } from "./git-hooks/install-pre-commit-hook.js";
 export { findGitRoot } from "./git-hooks/find-git-root.js";
+export type { GenerateFeatureOptions } from "./commands/generate-command.js";
+export type { GeneratedNames } from "./code-generator/name-style.js";
 export type { InitProjectOptions } from "./commands/init-command.js";
 export type { QualityRunner } from "./quality/quality-runner.js";
 export type { GeneratedFile } from "./project-generator/create-project-files.js";

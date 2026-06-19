@@ -1,4 +1,5 @@
 import { parseInitArgs, initProject } from "./commands/init-command.js";
+import { generateFeature, parseGenerateArgs } from "./commands/generate-command.js";
 import { runQuality } from "./commands/quality-command.js";
 
 export async function main(argv: readonly string[] = process.argv.slice(2)): Promise<void> {
@@ -11,6 +12,11 @@ export async function main(argv: readonly string[] = process.argv.slice(2)): Pro
 
   if (command === "quality") {
     await runQuality();
+    return;
+  }
+
+  if (command === "generate") {
+    await generateFeature(parseGenerateArgs(args));
     return;
   }
 
