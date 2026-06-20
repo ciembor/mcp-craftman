@@ -37,7 +37,7 @@ The script:
 
 1. runs `pnpm quality`;
 2. removes package `dist/` directories;
-3. builds `core`, `node`, and `cli`;
+3. builds `core`, `node`, `cli`, and `zod`;
 4. packs all packages into a temporary directory to validate npm artifacts.
 
 Packing uses pnpm so `workspace:^` dependencies are converted to normal semver ranges in published package metadata.
@@ -47,17 +47,19 @@ Packing uses pnpm so `workspace:^` dependencies are converted to normal semver r
 Publish packages in dependency order:
 
 ```text
-@mcp-craftman/core
-@mcp-craftman/node
-@mcp-craftman/cli
+@mcp-craftsman/core
+@mcp-craftsman/node
+@mcp-craftsman/cli
+@mcp-craftsman/zod
 ```
 
 Current `latest` versions:
 
 ```text
-@mcp-craftman/core@0.1.1
-@mcp-craftman/node@0.1.1
-@mcp-craftman/cli@0.1.4
+@mcp-craftsman/core@0.2.0
+@mcp-craftsman/node@0.2.0
+@mcp-craftsman/cli@0.2.0
+@mcp-craftsman/zod@0.2.0
 ```
 
 ## Notes

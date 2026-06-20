@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { assertMcpAnnotations, assertToolSchemas, createCapabilityRegistry, defineTool } from "../../src/index.js";
 
-describe("@mcp-craftman/core tool schema validation", () => {
+describe("@mcp-craftsman/core tool schema validation", () => {
   it("rejects structured tool results without an output schema", () => {
     expect(() =>
       createCapabilityRegistry([
@@ -49,7 +49,7 @@ describe("@mcp-craftman/core tool schema validation", () => {
 
 });
 
-describe("@mcp-craftman/core annotation validation", () => {
+describe("@mcp-craftsman/core annotation validation", () => {
   it("rejects inconsistent read and write annotations", () => {
     expect(() =>
       createCapabilityRegistry([

@@ -32,7 +32,7 @@ export function parseInitArgs(args: readonly string[]): InitProjectOptions {
   const name = nameFlagIndex >= 0 ? args[nameFlagIndex + 1] : undefined;
 
   if (!path || !name) {
-    throw new Error("Usage: mcp-craftman init <path> --name <name>");
+    throw new Error("Usage: mcp-craftsman init <path> --name <name>");
   }
 
   return {

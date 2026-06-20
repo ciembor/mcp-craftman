@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
-describe("@mcp-craftman/node public API", () => {
+describe("@mcp-craftsman/node public API", () => {
   it("exports only through the package root barrel", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli",

@@ -19,7 +19,7 @@ afterEach(async () => {
   tempDirs.length = 0;
 });
 
-describe("@mcp-craftman/cli quality", () => {
+describe("@mcp-craftsman/cli quality", () => {
   it("defines the exact quality command sequence", async () => {
     const calls: string[] = [];
 
@@ -39,7 +39,7 @@ describe("@mcp-craftman/cli quality", () => {
   });
 });
 
-describe("@mcp-craftman/cli project generator", () => {
+describe("@mcp-craftsman/cli project generator", () => {
   it("generates the expected server file set", () => {
     const files = createProjectFiles("TERYT MCP").map((file) => file.path);
 
@@ -65,7 +65,7 @@ describe("@mcp-craftman/cli project generator", () => {
   });
 });
 
-describe("@mcp-craftman/cli init command", () => {
+describe("@mcp-craftsman/cli init command", () => {
   it("initializes a project on disk", async () => {
     const directory = await createTempDir();
     const projectPath = join(directory, "teryt");
@@ -101,7 +101,7 @@ pnpm quality
 });
 
 async function createTempDir(): Promise<string> {
-  const path = await mkdtemp(join(tmpdir(), "mcp-craftman-cli-"));
+  const path = await mkdtemp(join(tmpdir(), "mcp-craftsman-cli-"));
   tempDirs.push(path);
   return path;
 }

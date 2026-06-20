@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { defineSetupTask, runPostinstallSetup, runSetupTasks } from "../../src/index.js";
 
-describe("@mcp-craftman/node setup task execution", () => {
+describe("@mcp-craftsman/node setup task execution", () => {
   it("runs setup tasks in missing mode when they should run", async () => {
     const calls: string[] = [];
     const task = defineSetupTask({
@@ -77,7 +77,7 @@ describe("@mcp-craftman/node setup task execution", () => {
 
 });
 
-describe("@mcp-craftman/node setup task failures", () => {
+describe("@mcp-craftsman/node setup task failures", () => {
   it("captures task failures without throwing by default", async () => {
     const result = await runSetupTasks([
       defineSetupTask({
@@ -98,7 +98,7 @@ describe("@mcp-craftman/node setup task failures", () => {
 
 });
 
-describe("@mcp-craftman/node postinstall setup", () => {
+describe("@mcp-craftsman/node postinstall setup", () => {
   it("supports best-effort postinstall setup with env opt-out", async () => {
     const stderr = new MemoryWritable();
 

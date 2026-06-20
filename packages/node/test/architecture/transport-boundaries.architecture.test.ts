@@ -8,7 +8,7 @@ const transportFiles = [
   "../../src/transports/stdio/stdio-server.ts",
 ];
 
-describe("@mcp-craftman/node transport boundaries", () => {
+describe("@mcp-craftsman/node transport boundaries", () => {
   it("keeps transports separate from filesystem helpers", async () => {
     const sources = await Promise.all(transportFiles.map((path) => readFile(new URL(path, import.meta.url), "utf8")));
 

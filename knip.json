@@ -11,8 +11,8 @@
         "test/**/*.ts"
       ],
       "ignoreDependencies": [
-        "@mcp-craftman/core",
-        "@mcp-craftman/node"
+        "@mcp-craftsman/core",
+        "@mcp-craftsman/node"
       ]
     },
     "packages/core": {
@@ -46,7 +46,7 @@
         "test/**/*.ts"
       ],
       "ignoreDependencies": [
-        "@mcp-craftman/core"
+        "@mcp-craftsman/core"
       ]
     }
   }

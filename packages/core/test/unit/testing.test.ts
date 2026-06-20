@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { callTool, createCapabilityRegistry, createMcpApp, createTestApp, defineTool } from "../../src/index.js";
 
-describe("@mcp-craftman/core testing", () => {
+describe("@mcp-craftsman/core testing", () => {
   it("creates an MCP app from a valid registry", () => {
     const registry = createCapabilityRegistry([]);
     const app = createMcpApp({

@@ -42,7 +42,7 @@ export function parseGenerateArgs(args: readonly string[]): GenerateFeatureOptio
   const [kind, name, ...rest] = args;
 
   if (kind !== "feature" || !name) {
-    throw new Error("Usage: mcp-craftman generate feature <name> [--path <path>] [--no-register]");
+    throw new Error("Usage: mcp-craftsman generate feature <name> [--path <path>] [--no-register]");
   }
 
   const pathFlagIndex = rest.indexOf("--path");

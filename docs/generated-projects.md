@@ -1,8 +1,8 @@
 # Generated Projects
 
-`mcp-craftman init <path> --name <name>` creates a complete MCP server project.
+`mcp-craftsman init <path> --name <name>` creates a complete MCP server project.
 
-The `mcp-craftman` binary currently has these commands:
+The `mcp-craftsman` binary currently has these commands:
 
 ```text
 init
@@ -10,7 +10,7 @@ generate feature
 quality
 ```
 
-Additional exports from `@mcp-craftman/cli` are library helpers, not terminal commands.
+Additional exports from `@mcp-craftsman/cli` are library helpers, not terminal commands.
 
 ## Layout
 
@@ -20,20 +20,23 @@ src/
   main.ts
   mcp/
     registry.ts
-  server/
-    transports/
-      http.ts
-      stdio.ts
   features/
     health/
       index.ts
-      application/
       domain/
+        health-status.ts
+      application/
+        get-health.ts
       mcp/
+        health.tool.ts
 test/
   architecture/
+    project.architecture.test.ts
   contracts/
+    health.contract.test.ts
+    public-capabilities.contract.test.ts
   integration/
+    app.smoke.test.ts
 dependency-cruiser.config.cjs
 eslint.config.js
 knip.json
@@ -42,7 +45,8 @@ tsconfig.json
 vitest.config.ts
 ```
 
-The generated server starts with one read-only `health_status` tool.
+The generated server starts with one read-only `health_status` tool implemented
+with `@mcp-craftsman/zod`.
 
 ## Feature Shape
 
@@ -88,6 +92,8 @@ GET /health
 POST /tools/:toolName
 ```
 
+The POST body is the tool input. The response is the MCP tool result.
+
 ## Quality
 
 Generated projects use:
@@ -96,7 +102,7 @@ Generated projects use:
 pnpm quality
 ```
 
-The script runs `mcp-craftman quality`, which executes:
+The script runs `mcp-craftsman quality`, which executes:
 
 ```text
 knip
@@ -109,7 +115,7 @@ vitest run --coverage test/unit test/integration test/contracts
 
 ## Programmatic API
 
-`@mcp-craftman/cli` also exports:
+`@mcp-craftsman/cli` also exports:
 
 ```text
 main
@@ -134,13 +140,13 @@ Use these from tests or custom tooling when you need the same behavior without s
 Inside an existing generated server:
 
 ```bash
-mcp-craftman generate feature source-status
+mcp-craftsman generate feature source-status
 ```
 
 From another working directory:
 
 ```bash
-mcp-craftman generate feature source-status --path ./my-server
+mcp-craftsman generate feature source-status --path ./my-server
 ```
 
 The command creates:
@@ -149,14 +155,22 @@ The command creates:
 src/features/source-status/index.ts
 src/features/source-status/domain/source-status-result.ts
 src/features/source-status/application/source-status.ts
+src/features/source-status/application/ports/source-status-repository.ts
+src/features/source-status/infrastructure/in-memory-source-status-repository.ts
 src/features/source-status/mcp/source-status.tool.ts
 test/contracts/source-status.contract.test.ts
 ```
 
-It refuses to overwrite existing files. By default it also updates `src/mcp/registry.ts` by adding the feature import and tool entry through a TypeScript AST-based edit.
+The generated feature returns `{ message: "source_status ready" }` until you
+replace the domain model, use case, repository, adapter, schema, and contract
+test with real behavior.
+
+It refuses to overwrite existing files. By default it also updates
+`src/mcp/registry.ts` by adding the feature import and tool entry through a
+TypeScript AST-based edit.
 
 Skip registry edits when you want to wire the tool manually:
 
 ```bash
-mcp-craftman generate feature source-status --no-register
+mcp-craftsman generate feature source-status --no-register
 ```

@@ -87,7 +87,7 @@ export function createInMemory${names.resultType}Repository(): ${names.resultTyp
 }
 
 function createToolTemplate(names: GeneratedNames): string {
-  return `import { defineZodTool } from "@mcp-craftman/zod";
+  return `import { defineZodTool } from "@mcp-craftsman/zod";
 import * as z from "zod";
 
 import { ${names.functionName} } from "../application/${names.applicationFile}.js";
@@ -116,7 +116,7 @@ export const ${names.variableName} = defineZodTool({
 function createContractTemplate(names: GeneratedNames): string {
   return `import { describe, expect, it } from "vitest";
 
-import { callTool } from "@mcp-craftman/core";
+import { callTool } from "@mcp-craftsman/core";
 
 import { createApp } from "../../src/app.js";
 

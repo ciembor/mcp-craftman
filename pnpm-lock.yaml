@@ -41,10 +41,10 @@ importers:
 
   packages/cli:
     dependencies:
-      '@mcp-craftman/core':
+      '@mcp-craftsman/core':
         specifier: workspace:^
         version: link:../core
-      '@mcp-craftman/node':
+      '@mcp-craftsman/node':
         specifier: workspace:^
         version: link:../node
       cosmiconfig:
@@ -58,13 +58,13 @@ importers:
 
   packages/node:
     dependencies:
-      '@mcp-craftman/core':
+      '@mcp-craftsman/core':
         specifier: workspace:^
         version: link:../core
 
   packages/zod:
     devDependencies:
-      '@mcp-craftman/core':
+      '@mcp-craftsman/core':
         specifier: workspace:^
         version: link:../core
       zod:

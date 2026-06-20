@@ -5,10 +5,10 @@ pnpm quality
 
 rm -rf packages/core/dist packages/node/dist packages/cli/dist packages/zod/dist
 
-pnpm --filter @mcp-craftman/core build
-pnpm --filter @mcp-craftman/node build
-pnpm --filter @mcp-craftman/cli build
-pnpm --filter @mcp-craftman/zod build
+pnpm --filter @mcp-craftsman/core build
+pnpm --filter @mcp-craftsman/node build
+pnpm --filter @mcp-craftsman/cli build
+pnpm --filter @mcp-craftsman/zod build
 
 pack_dir=$(mktemp -d)
 trap 'rm -rf "$pack_dir"' EXIT

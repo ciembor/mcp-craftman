@@ -1,11 +1,11 @@
 import { Writable } from "node:stream";
 import { describe, expect, it } from "vitest";
 
-import { createTestApp, defineTool } from "@mcp-craftman/core";
+import { createTestApp, defineTool } from "@mcp-craftsman/core";
 
 import { callToolForCli, isCliEntrypoint, writeCliToolStructuredContent, writeJson } from "../../src/index.js";
 
-describe("@mcp-craftman/node CLI helpers", () => {
+describe("@mcp-craftsman/node CLI helpers", () => {
   it("writes formatted JSON", () => {
     const stdout = new MemoryWritable();
 

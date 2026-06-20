@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { createProjectFiles } from "../../src/index.js";
 
-describe("@mcp-craftman/cli generated project contract", () => {
+describe("@mcp-craftsman/cli generated project contract", () => {
   it("generates the expected server shape", () => {
     expect(createProjectFiles("Example MCP").map((file) => file.path)).toEqual(
       expect.arrayContaining([

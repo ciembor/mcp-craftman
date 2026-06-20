@@ -1,6 +1,6 @@
 import { createServer, type IncomingMessage, type Server, type ServerResponse } from "node:http";
 
-import { callTool, type McpApp } from "@mcp-craftman/core";
+import { callTool, type McpApp } from "@mcp-craftsman/core";
 
 import { createLogger, serializeError, type Logger } from "../../logging/logger.js";
 import { loadRuntimeConfig } from "../../runtime/runtime-config.js";

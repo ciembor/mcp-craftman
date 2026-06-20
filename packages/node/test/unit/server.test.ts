@@ -1,14 +1,14 @@
 import { PassThrough, Writable } from "node:stream";
 import { describe, expect, it, vi } from "vitest";
 
-import { createTestApp } from "@mcp-craftman/core";
+import { createTestApp } from "@mcp-craftsman/core";
 
 import { createLogger, serveMcpApp, type RuntimeConfig } from "../../src/index.js";
 
-const dataDir = "/tmp/mcp-craftman";
-const configDir = "/tmp/mcp-craftman-config";
+const dataDir = "/tmp/mcp-craftsman";
+const configDir = "/tmp/mcp-craftsman-config";
 
-describe("@mcp-craftman/node server runtime", () => {
+describe("@mcp-craftsman/node server runtime", () => {
   it("starts HTTP from runtime config", async () => {
     const server = await serveMcpApp(() => createTestApp([]), {
       config: {

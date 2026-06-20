@@ -1,8 +1,8 @@
 {
-  "name": "mcp-craftman-monorepo",
+  "name": "mcp-craftsman-monorepo",
   "version": "0.2.0",
   "private": true,
-  "description": "Monorepo for MCP Craftman packages.",
+  "description": "Monorepo for MCP Craftsman packages.",
   "type": "module",
   "packageManager": "pnpm@10.12.1",
   "scripts": {

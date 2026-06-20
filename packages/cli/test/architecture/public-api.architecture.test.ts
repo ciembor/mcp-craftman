@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
-describe("@mcp-craftman/cli public API", () => {
+describe("@mcp-craftsman/cli public API", () => {
   it("keeps public exports separate from the executable", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli.ts",
@@ -26,7 +26,7 @@ describe("@mcp-craftman/cli public API", () => {
     expect(indexSource).not.toContain("const ");
     expect(indexSource).not.toContain("process.");
     expect(Object.keys(packageJson.exports)).toEqual(["."]);
-    expect(packageJson.bin).toEqual({ "mcp-craftman": "dist/cli.js" });
+    expect(packageJson.bin).toEqual({ "mcp-craftsman": "dist/cli.js" });
     expect(packageJson.files).toEqual(["dist"]);
   });
 });

@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
-describe("@mcp-craftman/node architecture", () => {
+describe("@mcp-craftsman/node architecture", () => {
   it("keeps the public API behind one barrel entrypoint", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli",
@@ -21,7 +21,7 @@ describe("@mcp-craftman/node architecture", () => {
     expect(indexSource).not.toContain("const ");
   });
 
-  it("uses @mcp-craftman/core only through its package export", async () => {
+  it("uses @mcp-craftsman/core only through its package export", async () => {
     const sources = await Promise.all(
       [
         "../../src/cli/cli-io.ts",
@@ -32,10 +32,10 @@ describe("@mcp-craftman/node architecture", () => {
       ].map((path) => readFile(new URL(path, import.meta.url), "utf8")),
     );
 
-    expect(sources.join("\n")).toContain("from \"@mcp-craftman/core\"");
+    expect(sources.join("\n")).toContain("from \"@mcp-craftsman/core\"");
 
     for (const source of sources) {
-      expect(source).not.toContain("@mcp-craftman/core/src");
+      expect(source).not.toContain("@mcp-craftsman/core/src");
       expect(source).not.toContain("../core");
     }
   });

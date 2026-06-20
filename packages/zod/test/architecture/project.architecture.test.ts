@@ -1,7 +1,7 @@
 import { readdir, readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 
-describe("@mcp-craftman/zod architecture", () => {
+describe("@mcp-craftsman/zod architecture", () => {
   it("keeps the public API behind one barrel entrypoint", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual(["index.ts"]);
 

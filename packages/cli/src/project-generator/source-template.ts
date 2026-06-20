@@ -32,7 +32,7 @@ export function createSourceFiles(packageName: string) {
 }
 
 function createAppTemplate(packageName: string): string {
-  return `import { createMcpApp } from "@mcp-craftman/core";
+  return `import { createMcpApp } from "@mcp-craftsman/core";
 
 import { registry } from "./mcp/registry.js";
 
@@ -46,14 +46,14 @@ export function createApp() {
 `;
 }
 
-const mainTemplate = `import { serveMcpApp } from "@mcp-craftman/node";
+const mainTemplate = `import { serveMcpApp } from "@mcp-craftsman/node";
 
 import { createApp } from "./app.js";
 
 await serveMcpApp(createApp);
 `;
 
-const registryTemplate = `import { createCapabilityRegistry } from "@mcp-craftman/core";
+const registryTemplate = `import { createCapabilityRegistry } from "@mcp-craftsman/core";
 
 import { healthTool } from "../features/health/index.js";
 
@@ -81,7 +81,7 @@ export function getHealth(): HealthStatus {
 }
 `;
 
-const healthToolTemplate = `import { defineZodTool } from "@mcp-craftman/zod";
+const healthToolTemplate = `import { defineZodTool } from "@mcp-craftsman/zod";
 import * as z from "zod";
 
 import { getHealth } from "../application/get-health.js";

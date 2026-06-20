@@ -4,7 +4,7 @@ import { loadRuntimeConfig, resolveConfigDir, resolveDataDir } from "../../src/i
 
 const cacheRoot = "cache-root";
 
-describe("@mcp-craftman/node runtime", () => {
+describe("@mcp-craftsman/node runtime", () => {
   it("loads runtime config from environment", () => {
     expect(
       loadRuntimeConfig({
@@ -48,7 +48,7 @@ describe("@mcp-craftman/node runtime", () => {
       resolveDataDir({
         XDG_CACHE_HOME: cacheRoot,
       }),
-    ).toBe(`${process.cwd()}/${cacheRoot}/mcp-craftman`);
+    ).toBe(`${process.cwd()}/${cacheRoot}/mcp-craftsman`);
   });
 
   it("resolves application-specific data directory under XDG cache", () => {

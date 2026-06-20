@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { getQualitySteps } from "../../src/index.js";
 
-describe("@mcp-craftman/cli architecture", () => {
+describe("@mcp-craftsman/cli architecture", () => {
   it("keeps the public API behind one barrel entrypoint and a separate executable", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
       "cli.ts",
@@ -53,8 +53,8 @@ describe("@mcp-craftman/cli architecture", () => {
     );
 
     for (const source of sources) {
-      expect(source).not.toContain("@mcp-craftman/core/src");
-      expect(source).not.toContain("@mcp-craftman/node/src");
+      expect(source).not.toContain("@mcp-craftsman/core/src");
+      expect(source).not.toContain("@mcp-craftsman/node/src");
       expect(source).not.toContain("servers/");
     }
   });
@@ -69,7 +69,7 @@ describe("@mcp-craftman/cli architecture", () => {
     expect(Object.keys(packageJson.exports)).toEqual(["."]);
     expect(packageJson.files).toEqual(["dist"]);
     expect(packageJson.bin).toEqual({
-      "mcp-craftman": "dist/cli.js",
+      "mcp-craftsman": "dist/cli.js",
     });
   });
 });

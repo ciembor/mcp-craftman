@@ -6,7 +6,7 @@ import {
   assertNoDependencyCycles,
 } from "../../src/index.js";
 
-describe("@mcp-craftman/core architecture helpers", () => {
+describe("@mcp-craftsman/core architecture helpers", () => {
   it("detects cycles and layer violations", () => {
     expect(() =>
       assertNoDependencyCycles([

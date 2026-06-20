@@ -1,4 +1,4 @@
-import { callTool, type McpApp } from "@mcp-craftman/core";
+import { callTool, type McpApp } from "@mcp-craftsman/core";
 
 import { loadRuntimeConfig, type RuntimeConfig } from "../runtime/runtime-config.js";
 import { runSetupTasks, type SetupTask } from "../setup/setup-task.js";

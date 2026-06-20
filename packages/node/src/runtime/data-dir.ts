@@ -1,7 +1,7 @@
 import { homedir } from "node:os";
 import { resolve } from "node:path";
 
-const defaultAppName = "mcp-craftman";
+const defaultAppName = "mcp-craftsman";
 
 export type ResolveDataDirOptions = {
   readonly appName?: string;

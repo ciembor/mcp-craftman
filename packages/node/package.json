@@ -1,8 +1,8 @@
 {
-  "name": "@mcp-craftman/node",
+  "name": "@mcp-craftsman/node",
   "version": "0.2.0",
   "private": false,
-  "description": "Node.js runtime adapters and utilities for MCP Craftman.",
+  "description": "Node.js runtime adapters and utilities for MCP Craftsman.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -25,6 +25,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@mcp-craftman/core": "workspace:^"
+    "@mcp-craftsman/core": "workspace:^"
   }
 }

@@ -30,7 +30,7 @@ afterEach(async () => {
   tempDirs.length = 0;
 });
 
-describe("@mcp-craftman/node local resources", () => {
+describe("@mcp-craftsman/node local resources", () => {
   it("syncs a missing resource into the current directory and manifest", async () => {
     const directory = await createTempDir();
     const store = createLocalResourceStore(join(directory, "dictionary"));
@@ -109,7 +109,7 @@ describe("@mcp-craftman/node local resources", () => {
 });
 
 async function createTempDir(): Promise<string> {
-  const path = await mkdtemp(join(tmpdir(), "mcp-craftman-resource-"));
+  const path = await mkdtemp(join(tmpdir(), "mcp-craftsman-resource-"));
   tempDirs.push(path);
   return path;
 }

@@ -64,7 +64,7 @@ export async function runPostinstallSetup(
   const stderr = options.stderr ?? process.stderr;
 
   if (skipValues.has((env[skipEnvVar] ?? "").toLowerCase())) {
-    stderr.write("mcp-craftman setup: skipping postinstall setup.\n");
+    stderr.write("mcp-craftsman setup: skipping postinstall setup.\n");
     return {
       mode: options.mode ?? "missing",
       tasks: tasks.map((task) => ({
@@ -78,7 +78,7 @@ export async function runPostinstallSetup(
   const failed = result.tasks.filter((task) => task.status === "failed");
 
   for (const task of result.tasks) {
-    stderr.write(`mcp-craftman setup: ${task.name} ${task.status}.\n`);
+    stderr.write(`mcp-craftsman setup: ${task.name} ${task.status}.\n`);
   }
 
   if (failed.length > 0 && options.failOnError) {

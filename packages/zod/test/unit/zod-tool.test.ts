@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import * as z from "zod";
 
-import { callTool, createTestApp } from "@mcp-craftman/core";
+import { callTool, createTestApp } from "@mcp-craftsman/core";
 
 import { defineZodTool } from "../../src/index.js";
 
-describe("@mcp-craftman/zod defineZodTool", () => {
+describe("@mcp-craftsman/zod defineZodTool", () => {
   it("creates JSON schemas from Zod schemas and infers handler input", async () => {
     const tool = defineZodTool({
       name: "echo_name",
