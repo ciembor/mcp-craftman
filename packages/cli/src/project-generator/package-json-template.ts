@@ -1,5 +1,5 @@
-const frameworkVersion = "^0.1.2";
-const cliVersion = "^0.1.5";
+const frameworkVersion = "^0.2.0";
+const cliVersion = "^0.2.0";
 const zodVersion = "^4.4.3";
 
 export function createPackageJson(packageName: string): string {
@@ -17,7 +17,7 @@ export function createPackageJson(packageName: string): string {
       dependencies: {
         "@mcp-craftman/core": frameworkVersion,
         "@mcp-craftman/node": frameworkVersion,
-        "@mcp-craftman/zod": "^0.1.0",
+        "@mcp-craftman/zod": frameworkVersion,
         zod: zodVersion,
       },
       devDependencies: {
