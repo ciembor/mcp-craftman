@@ -74,6 +74,6 @@ describe("@mcp-craftman/zod defineZodTool", () => {
       }),
     });
 
-    await expect(callTool(createTestApp([tool]), "double", { value: "bad" })).rejects.toThrow(z.ZodError);
+    await expect(callTool(createTestApp([tool]), "double", { value: "bad" })).rejects.toThrow("double received invalid input.");
   });
 });

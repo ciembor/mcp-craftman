@@ -19,7 +19,12 @@ export function defineZodTool<TInputSchema extends z.ZodType, TOutputSchema exte
   return defineTool({
     annotations: definition.annotations,
     description: definition.description,
-    handler: async (input, context) => validateToolResult(await definition.handler(definition.input.parse(input), context), definition.output),
+    handler: async (input, context) => {
+      const parsedInput = parseInput(definition.name, input, definition.input);
+      const result = await definition.handler(parsedInput, context);
+
+      return validateToolResult(definition.name, result, definition.output);
+    },
     inputSchema: toJsonSchema(definition.input),
     name: definition.name,
     outputSchema: toJsonSchema(definition.output),
@@ -29,7 +34,22 @@ export function defineZodTool<TInputSchema extends z.ZodType, TOutputSchema exte
   });
 }
 
+function parseInput<TInputSchema extends z.ZodType>(
+  toolName: string,
+  input: unknown,
+  schema: TInputSchema,
+): z.output<TInputSchema> {
+  const result = schema.safeParse(input);
+
+  if (!result.success) {
+    throw new Error(`${toolName} received invalid input.`);
+  }
+
+  return result.data;
+}
+
 function validateToolResult<TOutputSchema extends z.ZodType>(
+  toolName: string,
   result: ToolCallResult<z.output<TOutputSchema>>,
   output: TOutputSchema,
 ): ToolCallResult<z.output<TOutputSchema>> {
@@ -37,9 +57,15 @@ function validateToolResult<TOutputSchema extends z.ZodType>(
     return result;
   }
 
+  const parsedOutput = output.safeParse(result.structuredContent);
+
+  if (!parsedOutput.success) {
+    throw new Error(`${toolName} returned invalid structured content.`);
+  }
+
   return {
     ...result,
-    structuredContent: output.parse(result.structuredContent),
+    structuredContent: parsedOutput.data,
   };
 }
 

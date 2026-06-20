@@ -92,7 +92,7 @@ const publicToolInputs: Readonly<Record<string, unknown>> = {
 };
 
 const invalidInputErrors: Readonly<Record<string, string>> = {
-  health_status: "health_status requires object input.",
+  health_status: "health_status received invalid input.",
 };
 
 describe("public capability contracts", () => {

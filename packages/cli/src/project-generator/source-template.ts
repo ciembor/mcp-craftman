@@ -81,33 +81,24 @@ export function getHealth(): HealthStatus {
 }
 `;
 
-const healthToolTemplate = `import { defineTool, requireObjectInput } from "@mcp-craftman/core";
+const healthToolTemplate = `import { defineZodTool } from "@mcp-craftman/zod";
+import * as z from "zod";
 
 import { getHealth } from "../application/get-health.js";
 
-export const healthTool = defineTool({
+export const healthTool = defineZodTool({
   name: "health_status",
   description: "Returns basic server health.",
   policy: "read",
-  returnsStructuredContent: true,
-  outputSchema: {
-    type: "object",
-    properties: {
-      ok: {
-        type: "boolean",
-      },
-    },
-    required: ["ok"],
-  },
+  input: z.object({}),
+  output: z.object({
+    ok: z.boolean(),
+  }),
   annotations: {
     readOnlyHint: true,
   },
-  handler: (input) => {
-    requireObjectInput(input, "health_status");
-
-    return {
-      structuredContent: getHealth(),
-    };
-  },
+  handler: () => ({
+    structuredContent: getHealth(),
+  }),
 });
 `;

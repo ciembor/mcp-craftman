@@ -40,10 +40,13 @@ describe("@mcp-craftman/cli feature generator files", () => {
       sourceStatusIndexPath,
       "src/features/source-status/domain/source-status-result.ts",
       "src/features/source-status/application/source-status.ts",
+      "src/features/source-status/application/ports/source-status-repository.ts",
+      "src/features/source-status/infrastructure/in-memory-source-status-repository.ts",
       "src/features/source-status/mcp/source-status.tool.ts",
       sourceStatusContractPath,
     ]);
     expect(files.find((file) => file.path.endsWith("source-status.tool.ts"))?.content).toContain('name: "source_status"');
+    expect(files.find((file) => file.path.endsWith("source-status.tool.ts"))?.content).toContain("defineZodTool");
   });
 
   it("parses feature generation arguments", () => {
