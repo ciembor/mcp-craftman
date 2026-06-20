@@ -1,5 +1,5 @@
 export { loadRuntimeConfig } from "./runtime/runtime-config.js";
-export { resolveDataDir } from "./runtime/data-dir.js";
+export { resolveConfigDir, resolveDataDir } from "./runtime/data-dir.js";
 export { defineSetupTask, runPostinstallSetup, runSetupTasks } from "./setup/setup-task.js";
 export {
   callToolForCli,
@@ -18,7 +18,7 @@ export { startStdioServer } from "./transports/stdio/stdio-server.js";
 export type { CliAppFactory, CliIo } from "./cli/cli-io.js";
 export type { McpCli, McpCliCommand, McpCliCommandContext, McpCliOptions } from "./cli/mcp-cli.js";
 export type { ResolveDataDirOptions } from "./runtime/data-dir.js";
-export type { LoadRuntimeConfigOptions, RuntimeConfig } from "./runtime/runtime-config.js";
+export type { LoadRuntimeConfigOptions, RuntimeConfig, RuntimeLogLevel } from "./runtime/runtime-config.js";
 export type {
   PostinstallSetupOptions,
   RunSetupTasksOptions,

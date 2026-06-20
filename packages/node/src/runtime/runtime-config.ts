@@ -1,11 +1,16 @@
-import { resolveDataDir } from "./data-dir.js";
+import { resolveConfigDir, resolveDataDir } from "./data-dir.js";
 
 const defaultAppName = "mcp-craftman";
+const logLevels = ["debug", "info", "warn", "error", "silent"] as const;
+
+export type RuntimeLogLevel = (typeof logLevels)[number];
 
 export type RuntimeConfig = {
   readonly transport: "stdio" | "http";
   readonly port: number;
   readonly dataDir: string;
+  readonly configDir: string;
+  readonly logLevel: RuntimeLogLevel;
 };
 
 export type LoadRuntimeConfigOptions = {
@@ -21,6 +26,8 @@ export function loadRuntimeConfig(envOrOptions: NodeJS.ProcessEnv | LoadRuntimeC
     transport: env.MCP_TRANSPORT === "http" ? "http" : "stdio",
     port: parsePort(env.PORT ?? env.MCP_PORT),
     dataDir: resolveDataDir(options),
+    configDir: resolveConfigDir(options),
+    logLevel: parseLogLevel(env.MCP_LOG_LEVEL),
   };
 }
 
@@ -32,6 +39,22 @@ function parsePort(value: string | undefined): number {
   }
 
   return port;
+}
+
+function parseLogLevel(value: string | undefined): RuntimeLogLevel {
+  if (value === undefined || value === "") {
+    return "info";
+  }
+
+  if (isRuntimeLogLevel(value)) {
+    return value;
+  }
+
+  throw new Error(`Invalid log level: ${value}`);
+}
+
+function isRuntimeLogLevel(value: string): value is RuntimeLogLevel {
+  return logLevels.includes(value as RuntimeLogLevel);
 }
 
 function normalizeOptions(envOrOptions: NodeJS.ProcessEnv | LoadRuntimeConfigOptions): Required<LoadRuntimeConfigOptions> {

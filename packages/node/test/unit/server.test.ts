@@ -3,15 +3,18 @@ import { describe, expect, it, vi } from "vitest";
 
 import { createTestApp } from "@mcp-craftman/core";
 
-import { createLogger, serveMcpApp } from "../../src/index.js";
+import { createLogger, serveMcpApp, type RuntimeConfig } from "../../src/index.js";
 
 const dataDir = "/tmp/mcp-craftman";
+const configDir = "/tmp/mcp-craftman-config";
 
 describe("@mcp-craftman/node server runtime", () => {
   it("starts HTTP from runtime config", async () => {
     const server = await serveMcpApp(() => createTestApp([]), {
       config: {
+        configDir,
         dataDir,
+        logLevel: "info",
         port: 0,
         transport: "http",
       },
@@ -33,7 +36,9 @@ describe("@mcp-craftman/node server runtime", () => {
     });
     const server = await serveMcpApp(() => createTestApp([]), {
       config: {
+        configDir,
         dataDir,
+        logLevel: "info",
         port: 3000,
         transport: "stdio",
       },
@@ -50,10 +55,12 @@ describe("@mcp-craftman/node server runtime", () => {
 
   it("passes runtime config into the app factory", async () => {
     const createApp = vi.fn(() => createTestApp([]));
-    const config = {
+    const config: RuntimeConfig = {
+      configDir,
       dataDir,
+      logLevel: "info",
       port: 0,
-      transport: "http" as const,
+      transport: "http",
     };
     const server = await serveMcpApp(createApp, {
       config,

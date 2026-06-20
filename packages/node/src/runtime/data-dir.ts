@@ -32,6 +32,30 @@ export function resolveDataDir(envOrOptions: NodeJS.ProcessEnv | ResolveDataDirO
   return resolve(homedir(), ".cache", appName);
 }
 
+export function resolveConfigDir(envOrOptions: NodeJS.ProcessEnv | ResolveDataDirOptions = process.env): string {
+  const options = normalizeOptions(envOrOptions);
+  const env = options.env;
+  const appName = options.appName ?? defaultAppName;
+
+  if (env.MCP_CONFIG_DIR) {
+    return resolve(env.MCP_CONFIG_DIR);
+  }
+
+  if (env.XDG_CONFIG_HOME) {
+    return resolve(env.XDG_CONFIG_HOME, appName);
+  }
+
+  if (process.platform === "darwin") {
+    return resolve(homedir(), "Library", "Application Support", appName);
+  }
+
+  if (process.platform === "win32" && env.APPDATA) {
+    return resolve(env.APPDATA, appName);
+  }
+
+  return resolve(homedir(), ".config", appName);
+}
+
 function normalizeOptions(envOrOptions: NodeJS.ProcessEnv | ResolveDataDirOptions): Required<ResolveDataDirOptions> {
   if (isResolveDataDirOptions(envOrOptions)) {
     return {
