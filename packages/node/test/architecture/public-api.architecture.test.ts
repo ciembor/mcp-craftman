@@ -8,6 +8,7 @@ describe("@mcp-craftman/node public API", () => {
       "filesystem",
       "index.ts",
       "logging",
+      "resources",
       "runtime",
       "server",
       "setup",
