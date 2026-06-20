@@ -29,6 +29,7 @@
   "dependencies": {
     "@mcp-craftman/core": "workspace:^",
     "@mcp-craftman/node": "workspace:^",
+    "cosmiconfig": "^9.0.2",
     "typescript": "^5.8.3"
   }
 }

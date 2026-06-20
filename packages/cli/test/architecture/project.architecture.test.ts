@@ -12,6 +12,7 @@ describe("@mcp-craftman/cli architecture", () => {
       "git-hooks",
       "index.ts",
       "main.ts",
+      "project-config",
       "project-generator",
       "quality",
     ]);
@@ -45,6 +46,7 @@ describe("@mcp-craftman/cli architecture", () => {
         "../../src/commands/quality-command.ts",
         "../../src/code-generator/feature-template.ts",
         "../../src/project-generator/create-project-files.ts",
+        "../../src/project-config/load-project-config.ts",
         "../../src/project-generator/source-template.ts",
         "../../src/quality/quality-runner.ts",
       ].map((path) => readFile(new URL(path, import.meta.url), "utf8")),

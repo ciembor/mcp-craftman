@@ -10,6 +10,7 @@ describe("@mcp-craftman/cli public API", () => {
       "git-hooks",
       "index.ts",
       "main.ts",
+      "project-config",
       "project-generator",
       "quality",
     ]);
