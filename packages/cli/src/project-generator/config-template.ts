@@ -77,8 +77,8 @@ const knipTemplate = `{
     "test/**/*.ts"
   ],
   "ignoreDependencies": [
-    "@mcp-craftman/core",
-    "@mcp-craftman/node",
+    "@mcp-craftsman/core",
+    "@mcp-craftsman/node",
     "dependency-cruiser"
   ],
   "ignoreIssues": {

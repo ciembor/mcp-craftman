@@ -1,11 +1,11 @@
 import { PassThrough, Writable } from "node:stream";
 import { describe, expect, it, vi } from "vitest";
 
-import { createTestApp, defineTool } from "@mcp-craftman/core";
+import { createTestApp, defineTool } from "@mcp-craftsman/core";
 
 import { createLogger, startHttpServer, startStdioServer } from "../../src/index.js";
 
-describe("@mcp-craftman/node transports", () => {
+describe("@mcp-craftsman/node transports", () => {
   it("starts an HTTP adapter that calls registered tools", async () => {
     const app = createEchoApp();
     const http = await startHttpServer(app, {

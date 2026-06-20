@@ -19,7 +19,7 @@ afterEach(async () => {
   tempDirs.length = 0;
 });
 
-describe("@mcp-craftman/node filesystem", () => {
+describe("@mcp-craftsman/node filesystem", () => {
   it("writes files atomically and creates parent directories", async () => {
     const directory = await createTempDir();
     const path = join(directory, "nested", "manifest.json");
@@ -48,7 +48,7 @@ describe("@mcp-craftman/node filesystem", () => {
 });
 
 async function createTempDir(): Promise<string> {
-  const path = await mkdtemp(join(tmpdir(), "mcp-craftman-node-"));
+  const path = await mkdtemp(join(tmpdir(), "mcp-craftsman-node-"));
   tempDirs.push(path);
   return path;
 }

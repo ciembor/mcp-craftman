@@ -4,7 +4,7 @@ import { readOptionalNumberField, readQueryLimitInput, readRequiredStringField, 
 
 const getPlaceRequiresId = "get_place requires id.";
 
-describe("@mcp-craftman/core input helpers", () => {
+describe("@mcp-craftsman/core input helpers", () => {
   it("reads required string fields with stable MCP tool errors", () => {
     expect(readRequiredStringField({ id: "123" }, "id", "get_place")).toBe("123");
 

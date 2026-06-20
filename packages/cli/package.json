@@ -1,11 +1,11 @@
 {
-  "name": "@mcp-craftman/cli",
+  "name": "@mcp-craftsman/cli",
   "version": "0.2.0",
   "private": false,
-  "description": "CLI for generating and validating MCP Craftman projects.",
+  "description": "CLI for generating and validating MCP Craftsman projects.",
   "type": "module",
   "bin": {
-    "mcp-craftman": "dist/cli.js"
+    "mcp-craftsman": "dist/cli.js"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -27,8 +27,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@mcp-craftman/core": "workspace:^",
-    "@mcp-craftman/node": "workspace:^",
+    "@mcp-craftsman/core": "workspace:^",
+    "@mcp-craftsman/node": "workspace:^",
     "cosmiconfig": "^9.0.2",
     "typescript": "^5.8.3"
   }

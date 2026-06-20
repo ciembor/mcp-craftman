@@ -19,7 +19,7 @@ const limitInputSchema = {
   required: ["limit"],
 };
 
-describe("@mcp-craftman/core registry", () => {
+describe("@mcp-craftsman/core registry", () => {
   it("defines and registers capabilities in deterministic order", () => {
     const registry = createCapabilityRegistry([
       defineTool({

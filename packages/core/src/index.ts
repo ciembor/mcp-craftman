@@ -7,7 +7,7 @@ export { assertFeatureBoundaries } from "./architecture/feature-boundaries.js";
 export { assertCleanArchitectureLayers } from "./architecture/clean-architecture-layers.js";
 export { createTestApp } from "./testing/create-test-app.js";
 export { callTool } from "./testing/call-tool.js";
-export { mcpCraftmanCoreVersion } from "./capabilities/types.js";
+export { mcpCraftsmanCoreVersion } from "./capabilities/types.js";
 export type {
   Capability,
   CapabilityBase,

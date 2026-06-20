@@ -37,9 +37,9 @@ describe("project architecture", () => {
     const sourceFiles = await readSourceFiles(sourceRoot);
 
     for (const [path, source] of Object.entries(sourceFiles)) {
-      expect(source, path).not.toContain("@mcp-craftman/core/src");
-      expect(source, path).not.toContain("@mcp-craftman/node/src");
-      expect(source, path).not.toContain("@mcp-craftman/cli/src");
+      expect(source, path).not.toContain("@mcp-craftsman/core/src");
+      expect(source, path).not.toContain("@mcp-craftsman/node/src");
+      expect(source, path).not.toContain("@mcp-craftsman/cli/src");
     }
   });
 });
@@ -66,7 +66,7 @@ async function readSourceFiles(root: URL): Promise<Record<string, string>> {
 
 const healthContractTemplate = `import { describe, expect, it } from "vitest";
 
-import { callTool } from "@mcp-craftman/core";
+import { callTool } from "@mcp-craftsman/core";
 
 import { createApp } from "../../src/app.js";
 
@@ -83,7 +83,7 @@ describe("health contract", () => {
 
 const publicCapabilitiesContractTemplate = `import { describe, expect, it } from "vitest";
 
-import { callTool, type Capability } from "@mcp-craftman/core";
+import { callTool, type Capability } from "@mcp-craftsman/core";
 
 import { createApp } from "../../src/app.js";
 

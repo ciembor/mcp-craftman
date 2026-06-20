@@ -32,7 +32,7 @@ afterEach(async () => {
   tempDirs.length = 0;
 });
 
-describe("@mcp-craftman/cli feature generator files", () => {
+describe("@mcp-craftsman/cli feature generator files", () => {
   it("generates a feature skeleton", () => {
     const files = createFeatureFiles("Source Status");
 
@@ -60,14 +60,14 @@ describe("@mcp-craftman/cli feature generator files", () => {
       register: false,
     });
     expect(() => parseGenerateArgs(["tool", searchPlacesFeatureName])).toThrow(
-      "Usage: mcp-craftman generate feature <name> [--path <path>] [--no-register]",
+      "Usage: mcp-craftsman generate feature <name> [--path <path>] [--no-register]",
     );
   });
 });
 
-describe("@mcp-craftman/cli feature registry updater", () => {
+describe("@mcp-craftsman/cli feature registry updater", () => {
   it("registers generated feature tools in a registry source", () => {
-    const source = `import { createCapabilityRegistry } from "@mcp-craftman/core";
+    const source = `import { createCapabilityRegistry } from "@mcp-craftsman/core";
 
 import { healthTool } from "../features/health/index.js";
 
@@ -76,7 +76,7 @@ export const registry = createCapabilityRegistry([
 ]);
 `;
 
-    expect(updateRegistrySource(source, createGeneratedNames(sourceStatusFeatureName))).toBe(`import { createCapabilityRegistry } from "@mcp-craftman/core";
+    expect(updateRegistrySource(source, createGeneratedNames(sourceStatusFeatureName))).toBe(`import { createCapabilityRegistry } from "@mcp-craftsman/core";
 
 import { healthTool } from "../features/health/index.js";
 import { sourceStatusTool } from "../features/source-status/index.js";
@@ -89,7 +89,7 @@ export const registry = createCapabilityRegistry([
   });
 
   it("keeps registry updates idempotent", () => {
-    const source = `import { createCapabilityRegistry } from "@mcp-craftman/core";
+    const source = `import { createCapabilityRegistry } from "@mcp-craftsman/core";
 
 import { sourceStatusTool } from "../features/source-status/index.js";
 
@@ -102,7 +102,7 @@ export const registry = createCapabilityRegistry([
   });
 });
 
-describe("@mcp-craftman/cli feature generator on disk", () => {
+describe("@mcp-craftsman/cli feature generator on disk", () => {
   it("generates a feature on disk and registers it", async () => {
     const directory = await createTempDir();
     await initProject({
@@ -143,7 +143,7 @@ describe("@mcp-craftman/cli feature generator on disk", () => {
 });
 
 async function createTempDir(): Promise<string> {
-  const path = await mkdtemp(join(tmpdir(), "mcp-craftman-cli-"));
+  const path = await mkdtemp(join(tmpdir(), "mcp-craftsman-cli-"));
   tempDirs.push(path);
   return path;
 }

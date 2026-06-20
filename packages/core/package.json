@@ -1,5 +1,5 @@
 {
-  "name": "@mcp-craftman/core",
+  "name": "@mcp-craftsman/core",
   "version": "0.2.0",
   "private": false,
   "description": "Runtime-independent primitives for building MCP applications.",

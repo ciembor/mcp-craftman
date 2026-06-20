@@ -1,4 +1,4 @@
-import { defineTool, type JsonSchema, type ToolCallContext, type ToolCallResult, type ToolCapability } from "@mcp-craftman/core";
+import { defineTool, type JsonSchema, type ToolCallContext, type ToolCallResult, type ToolCapability } from "@mcp-craftsman/core";
 import * as z from "zod";
 
 export type ZodToolDefinition<

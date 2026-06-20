@@ -13,22 +13,22 @@ export type ProjectConfigResult = {
 
 const projectConfigSearchPlaces = [
   "package.json",
-  ".mcp-craftmanrc",
-  ".mcp-craftmanrc.json",
-  ".mcp-craftmanrc.yaml",
-  ".mcp-craftmanrc.yml",
-  ".mcp-craftmanrc.js",
-  ".mcp-craftmanrc.ts",
-  ".mcp-craftmanrc.mjs",
-  ".mcp-craftmanrc.cjs",
-  "mcp-craftman.config.js",
-  "mcp-craftman.config.ts",
-  "mcp-craftman.config.mjs",
-  "mcp-craftman.config.cjs",
+  ".mcp-craftsmanrc",
+  ".mcp-craftsmanrc.json",
+  ".mcp-craftsmanrc.yaml",
+  ".mcp-craftsmanrc.yml",
+  ".mcp-craftsmanrc.js",
+  ".mcp-craftsmanrc.ts",
+  ".mcp-craftsmanrc.mjs",
+  ".mcp-craftsmanrc.cjs",
+  "mcp-craftsman.config.js",
+  "mcp-craftsman.config.ts",
+  "mcp-craftsman.config.mjs",
+  "mcp-craftsman.config.cjs",
 ] as const;
 
 export async function loadProjectConfig(options: LoadProjectConfigOptions = {}): Promise<ProjectConfigResult> {
-  const explorer = cosmiconfig("mcp-craftman", {
+  const explorer = cosmiconfig("mcp-craftsman", {
     searchPlaces: [...projectConfigSearchPlaces],
   });
   const result = await explorer.search(options.cwd);
@@ -47,7 +47,7 @@ export async function loadProjectConfig(options: LoadProjectConfigOptions = {}):
 
 function assertProjectConfig(config: unknown): ProjectConfig {
   if (config === null || Array.isArray(config) || typeof config !== "object") {
-    throw new Error("MCP Craftman project config must be an object.");
+    throw new Error("MCP Craftsman project config must be an object.");
   }
 
   return config as ProjectConfig;

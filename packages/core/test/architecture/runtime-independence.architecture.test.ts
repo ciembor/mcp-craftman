@@ -15,7 +15,7 @@ const sourceFiles = [
   "../../src/testing/create-test-app.ts",
 ];
 
-describe("@mcp-craftman/core runtime independence", () => {
+describe("@mcp-craftsman/core runtime independence", () => {
   it("does not import Node.js runtime APIs", async () => {
     const sources = await Promise.all(sourceFiles.map((path) => readFile(new URL(path, import.meta.url), "utf8")));
 

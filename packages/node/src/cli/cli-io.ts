@@ -1,6 +1,6 @@
 import { basename } from "node:path";
 
-import { callTool, type McpApp, type ToolCallResult } from "@mcp-craftman/core";
+import { callTool, type McpApp, type ToolCallResult } from "@mcp-craftsman/core";
 
 import { loadRuntimeConfig, type RuntimeConfig } from "../runtime/runtime-config.js";
 

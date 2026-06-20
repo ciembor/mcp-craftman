@@ -1,7 +1,7 @@
 import { createInterface } from "node:readline";
 import { Readable, Writable } from "node:stream";
 
-import type { McpApp } from "@mcp-craftman/core";
+import type { McpApp } from "@mcp-craftsman/core";
 
 import { createLogger, serializeError, type Logger } from "../../logging/logger.js";
 import { routeJsonRpc, type JsonRpcRequest } from "./json-rpc.js";

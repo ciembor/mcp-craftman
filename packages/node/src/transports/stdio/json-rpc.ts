@@ -1,4 +1,4 @@
-import { callTool, type McpApp } from "@mcp-craftman/core";
+import { callTool, type McpApp } from "@mcp-craftsman/core";
 
 export type JsonRpcRequest = {
   readonly id?: string | number | null;

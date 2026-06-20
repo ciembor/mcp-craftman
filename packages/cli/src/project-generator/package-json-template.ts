@@ -11,17 +11,17 @@ export function createPackageJson(packageName: string): string {
       type: "module",
       scripts: {
         build: "tsup src/main.ts --format esm --dts",
-        quality: "mcp-craftman quality",
+        quality: "mcp-craftsman quality",
         test: "vitest run",
       },
       dependencies: {
-        "@mcp-craftman/core": frameworkVersion,
-        "@mcp-craftman/node": frameworkVersion,
-        "@mcp-craftman/zod": frameworkVersion,
+        "@mcp-craftsman/core": frameworkVersion,
+        "@mcp-craftsman/node": frameworkVersion,
+        "@mcp-craftsman/zod": frameworkVersion,
         zod: zodVersion,
       },
       devDependencies: {
-        "@mcp-craftman/cli": cliVersion,
+        "@mcp-craftsman/cli": cliVersion,
         "@types/node": "^24.0.3",
         "@vitest/coverage-v8": "^3.2.4",
         "dependency-cruiser": "^13.1.5",

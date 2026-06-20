@@ -1,4 +1,4 @@
-import type { McpApp } from "@mcp-craftman/core";
+import type { McpApp } from "@mcp-craftsman/core";
 
 import { createLogger, type Logger } from "../logging/logger.js";
 import { loadRuntimeConfig, type RuntimeConfig } from "../runtime/runtime-config.js";

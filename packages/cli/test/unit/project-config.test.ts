@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { loadProjectConfig } from "../../src/index.js";
 
 const tempDirs: string[] = [];
-const rcConfigFileName = ".mcp-craftmanrc";
+const rcConfigFileName = ".mcp-craftsmanrc";
 
 afterEach(async () => {
   await Promise.all(
@@ -21,7 +21,7 @@ afterEach(async () => {
   tempDirs.length = 0;
 });
 
-describe("@mcp-craftman/cli project config", () => {
+describe("@mcp-craftsman/cli project config", () => {
   it("returns an empty config when no project config exists", async () => {
     await expect(loadProjectConfig({ cwd: await createTempDir() })).resolves.toEqual({
       config: {},
@@ -33,7 +33,7 @@ describe("@mcp-craftman/cli project config", () => {
     await writeFile(
       join(directory, "package.json"),
       JSON.stringify({
-        "mcp-craftman": {
+        "mcp-craftsman": {
           generatedTools: {
             schema: "zod",
           },
@@ -75,7 +75,7 @@ describe("@mcp-craftman/cli project config", () => {
   it("loads config from TypeScript config files", async () => {
     const directory = await createTempDir();
     await writeFile(
-      join(directory, "mcp-craftman.config.ts"),
+      join(directory, "mcp-craftsman.config.ts"),
       `export default {
   features: {
     generatedSchema: "zod",
@@ -90,7 +90,7 @@ describe("@mcp-craftman/cli project config", () => {
           generatedSchema: "zod",
         },
       },
-      filepath: join(directory, "mcp-craftman.config.ts"),
+      filepath: join(directory, "mcp-craftsman.config.ts"),
     });
   });
 
@@ -98,12 +98,12 @@ describe("@mcp-craftman/cli project config", () => {
     const directory = await createTempDir();
     await writeFile(join(directory, rcConfigFileName), "[]");
 
-    await expect(loadProjectConfig({ cwd: directory })).rejects.toThrow("MCP Craftman project config must be an object.");
+    await expect(loadProjectConfig({ cwd: directory })).rejects.toThrow("MCP Craftsman project config must be an object.");
   });
 });
 
 async function createTempDir(): Promise<string> {
-  const path = await mkdtemp(join(tmpdir(), "mcp-craftman-config-"));
+  const path = await mkdtemp(join(tmpdir(), "mcp-craftsman-config-"));
   tempDirs.push(path);
   return path;
 }

@@ -5,13 +5,13 @@
     "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "paths": {
-      "@mcp-craftman/cli": [
+      "@mcp-craftsman/cli": [
         "packages/cli/src/index.ts"
       ],
-      "@mcp-craftman/core": [
+      "@mcp-craftsman/core": [
         "packages/core/src/index.ts"
       ],
-      "@mcp-craftman/node": [
+      "@mcp-craftsman/node": [
         "packages/node/src/index.ts"
       ]
     },

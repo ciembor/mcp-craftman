@@ -1,6 +1,6 @@
 import { resolveConfigDir, resolveDataDir } from "./data-dir.js";
 
-const defaultAppName = "mcp-craftman";
+const defaultAppName = "mcp-craftsman";
 const logLevels = ["debug", "info", "warn", "error", "silent"] as const;
 
 export type RuntimeLogLevel = (typeof logLevels)[number];

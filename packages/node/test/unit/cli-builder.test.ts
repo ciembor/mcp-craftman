@@ -1,11 +1,11 @@
 import { Writable } from "node:stream";
 import { describe, expect, it } from "vitest";
 
-import { createTestApp, defineTool } from "@mcp-craftman/core";
+import { createTestApp, defineTool } from "@mcp-craftsman/core";
 
 import { createMcpCli, defineSetupTask, writeJson } from "../../src/index.js";
 
-describe("@mcp-craftman/node CLI builder status", () => {
+describe("@mcp-craftsman/node CLI builder status", () => {
   it("returns runtime status as JSON", async () => {
     const stdout = new MemoryWritable();
     const cli = createEchoCli();
@@ -30,7 +30,7 @@ describe("@mcp-craftman/node CLI builder status", () => {
   });
 });
 
-describe("@mcp-craftman/node CLI builder tools", () => {
+describe("@mcp-craftsman/node CLI builder tools", () => {
   it("lists tools and calls tools as JSON", async () => {
     const stdout = new MemoryWritable();
     const cli = createEchoCli();
@@ -53,7 +53,7 @@ describe("@mcp-craftman/node CLI builder tools", () => {
   });
 });
 
-describe("@mcp-craftman/node CLI builder extensions", () => {
+describe("@mcp-craftsman/node CLI builder extensions", () => {
   it("runs setup tasks and custom commands", async () => {
     const stdout = new MemoryWritable();
     const calls: string[] = [];

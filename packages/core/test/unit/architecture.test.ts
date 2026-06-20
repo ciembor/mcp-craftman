@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { assertCleanArchitectureLayers, assertFeatureBoundaries, assertNoDependencyCycles } from "../../src/index.js";
 
-describe("@mcp-craftman/core architecture", () => {
+describe("@mcp-craftsman/core architecture", () => {
   it("detects dependency cycles between source files", () => {
     expect(() =>
       assertNoDependencyCycles([

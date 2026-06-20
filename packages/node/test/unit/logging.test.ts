@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 
 import { createLogger } from "../../src/index.js";
 
-describe("@mcp-craftman/node logging", () => {
+describe("@mcp-craftsman/node logging", () => {
   it("writes logger output to the provided stream", () => {
     const writes: string[] = [];
     const stream = new Writable({
