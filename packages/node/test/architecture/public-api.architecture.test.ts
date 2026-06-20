@@ -10,6 +10,7 @@ describe("@mcp-craftman/node public API", () => {
       "logging",
       "runtime",
       "server",
+      "setup",
       "transports",
     ]);
 

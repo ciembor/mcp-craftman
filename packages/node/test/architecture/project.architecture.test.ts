@@ -10,6 +10,7 @@ describe("@mcp-craftman/node architecture", () => {
       "logging",
       "runtime",
       "server",
+      "setup",
       "transports",
     ]);
 

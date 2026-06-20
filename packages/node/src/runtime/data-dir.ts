@@ -1,13 +1,51 @@
+import { homedir } from "node:os";
 import { resolve } from "node:path";
 
-export function resolveDataDir(env: NodeJS.ProcessEnv = process.env): string {
+const defaultAppName = "mcp-craftman";
+
+export type ResolveDataDirOptions = {
+  readonly appName?: string;
+  readonly env?: NodeJS.ProcessEnv;
+};
+
+export function resolveDataDir(envOrOptions: NodeJS.ProcessEnv | ResolveDataDirOptions = process.env): string {
+  const options = normalizeOptions(envOrOptions);
+  const env = options.env;
+  const appName = options.appName ?? defaultAppName;
+
   if (env.MCP_DATA_DIR) {
     return resolve(env.MCP_DATA_DIR);
   }
 
   if (env.XDG_CACHE_HOME) {
-    return resolve(env.XDG_CACHE_HOME, "mcp-craftman");
+    return resolve(env.XDG_CACHE_HOME, appName);
   }
 
-  return resolve(process.cwd(), ".cache", "mcp-craftman");
+  if (process.platform === "darwin") {
+    return resolve(homedir(), "Library", "Caches", appName);
+  }
+
+  if (process.platform === "win32" && env.LOCALAPPDATA) {
+    return resolve(env.LOCALAPPDATA, appName);
+  }
+
+  return resolve(homedir(), ".cache", appName);
+}
+
+function normalizeOptions(envOrOptions: NodeJS.ProcessEnv | ResolveDataDirOptions): Required<ResolveDataDirOptions> {
+  if (isResolveDataDirOptions(envOrOptions)) {
+    return {
+      appName: envOrOptions.appName ?? defaultAppName,
+      env: envOrOptions.env ?? process.env,
+    };
+  }
+
+  return {
+    appName: defaultAppName,
+    env: envOrOptions,
+  };
+}
+
+function isResolveDataDirOptions(value: NodeJS.ProcessEnv | ResolveDataDirOptions): value is ResolveDataDirOptions {
+  return typeof value.appName === "string" || typeof value.env === "object";
 }
