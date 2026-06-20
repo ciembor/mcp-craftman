@@ -35,6 +35,19 @@
         "test/**/*.ts"
       ],
       "ignoreDependencies": []
+    },
+    "packages/zod": {
+      "entry": [
+        "src/index.ts",
+        "test/**/*.ts"
+      ],
+      "project": [
+        "src/**/*.ts",
+        "test/**/*.ts"
+      ],
+      "ignoreDependencies": [
+        "@mcp-craftman/core"
+      ]
     }
   }
 }

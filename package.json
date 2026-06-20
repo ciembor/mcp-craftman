@@ -10,12 +10,12 @@
     "prepare": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git config core.hooksPath .githooks || true",
     "test": "pnpm -r test",
     "quality": "pnpm run quality:knip && pnpm run quality:types && pnpm run quality:lint && pnpm run quality:deps && pnpm run quality:architecture && pnpm run quality:coverage",
-    "quality:architecture": "vitest run packages/core/test/architecture packages/node/test/architecture packages/cli/test/architecture",
-    "quality:coverage": "vitest run --coverage packages/core/test/unit packages/node/test/unit packages/cli/test/unit",
-    "quality:deps": "dependency-cruiser --config dependency-cruiser.config.cjs packages/core/src packages/node/src packages/cli/src packages/core/test packages/node/test packages/cli/test",
-    "quality:knip": "knip --config knip.json --workspace packages/core --workspace packages/node --workspace packages/cli",
+    "quality:architecture": "vitest run packages/core/test/architecture packages/node/test/architecture packages/cli/test/architecture packages/zod/test/architecture",
+    "quality:coverage": "vitest run --coverage packages/core/test/unit packages/node/test/unit packages/cli/test/unit packages/zod/test/unit",
+    "quality:deps": "dependency-cruiser --config dependency-cruiser.config.cjs packages/core/src packages/node/src packages/cli/src packages/zod/src packages/core/test packages/node/test packages/cli/test packages/zod/test",
+    "quality:knip": "knip --config knip.json --workspace packages/core --workspace packages/node --workspace packages/cli --workspace packages/zod",
     "quality:lint": "eslint packages --fix",
-    "quality:types": "tsc --noEmit -p packages/core/tsconfig.json && tsc --noEmit -p packages/node/tsconfig.json && tsc --noEmit -p packages/cli/tsconfig.json",
+    "quality:types": "tsc --noEmit -p packages/core/tsconfig.json && tsc --noEmit -p packages/node/tsconfig.json && tsc --noEmit -p packages/cli/tsconfig.json && tsc --noEmit -p packages/zod/tsconfig.json",
     "release:framework": "scripts/release-framework.sh"
   },
   "devDependencies": {
