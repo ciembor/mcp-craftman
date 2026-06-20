@@ -54,6 +54,7 @@ describe("@mcp-craftman/cli project generator", () => {
         "src/features/health/mcp/health.tool.ts",
         "test/architecture/project.architecture.test.ts",
         "test/contracts/health.contract.test.ts",
+        "test/contracts/public-capabilities.contract.test.ts",
         "test/integration/app.smoke.test.ts",
         "dependency-cruiser.config.cjs",
         "eslint.config.js",
