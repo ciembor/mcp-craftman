@@ -1,6 +1,6 @@
 export type CapabilityKind = "tool";
 
-export const mcpCraftmanCoreVersion = "0.1.1";
+export const mcpCraftmanCoreVersion = "0.1.3";
 
 export type CapabilityPolicy = "read" | "write";
 

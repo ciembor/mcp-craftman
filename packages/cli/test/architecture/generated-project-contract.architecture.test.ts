@@ -9,8 +9,6 @@ describe("@mcp-craftman/cli generated project contract", () => {
         "src/app.ts",
         "src/main.ts",
         "src/mcp/registry.ts",
-        "src/server/transports/http.ts",
-        "src/server/transports/stdio.ts",
         "src/features/health/index.ts",
         "test/architecture/project.architecture.test.ts",
         "test/contracts/health.contract.test.ts",

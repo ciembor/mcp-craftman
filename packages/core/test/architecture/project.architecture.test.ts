@@ -22,6 +22,7 @@ describe("@mcp-craftman/core architecture", () => {
       [
         "../../src/index.ts",
         "../../src/capabilities/define-tool.ts",
+        "../../src/capabilities/input.ts",
         "../../src/capabilities/types.ts",
         "../../src/registry/capability-registry.ts",
         "../../src/registry/registry-validation.ts",

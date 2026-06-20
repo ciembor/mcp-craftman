@@ -8,7 +8,7 @@ Published packages:
 - `@mcp-craftman/node`
 - `@mcp-craftman/cli`
 
-Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@mcp-craftman/cli@0.1.4`.
+Current release: `@mcp-craftman/core@0.1.3`, `@mcp-craftman/node@0.1.2`, and `@mcp-craftman/cli@0.1.5`.
 
 ## Packages
 
@@ -16,6 +16,7 @@ Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@m
 
 - runtime-independent MCP app primitives;
 - capability and tool definitions;
+- reusable input parsing helpers for MCP tool handlers;
 - capability registry validation;
 - direct `callTool` helper for tests and CLIs;
 - architecture helper functions used by generated projects.
@@ -24,6 +25,8 @@ Current release: `@mcp-craftman/core@0.1.1`, `@mcp-craftman/node@0.1.1`, and `@m
 
 - stdio transport;
 - HTTP transport;
+- configured server startup with `serveMcpApp`;
+- CLI JSON/tool dispatch helpers;
 - runtime config from environment variables;
 - stderr-safe logger;
 - atomic write and lock-file helpers.

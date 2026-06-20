@@ -1,6 +1,6 @@
 {
   "name": "@mcp-craftman/node",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "Node.js runtime adapters and utilities for MCP Craftman.",
   "type": "module",

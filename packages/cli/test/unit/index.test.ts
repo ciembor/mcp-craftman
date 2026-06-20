@@ -48,8 +48,6 @@ describe("@mcp-craftman/cli project generator", () => {
         "src/app.ts",
         "src/main.ts",
         "src/mcp/registry.ts",
-        "src/server/transports/http.ts",
-        "src/server/transports/stdio.ts",
         "src/features/health/index.ts",
         "src/features/health/domain/health-status.ts",
         "src/features/health/application/get-health.ts",

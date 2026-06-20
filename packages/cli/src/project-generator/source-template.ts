@@ -13,14 +13,6 @@ export function createSourceFiles(packageName: string) {
       content: registryTemplate,
     },
     {
-      path: "src/server/transports/http.ts",
-      content: httpTransportTemplate,
-    },
-    {
-      path: "src/server/transports/stdio.ts",
-      content: stdioTransportTemplate,
-    },
-    {
       path: "src/features/health/index.ts",
       content: healthIndexTemplate,
     },
@@ -54,22 +46,11 @@ export function createApp() {
 `;
 }
 
-const mainTemplate = `import { loadRuntimeConfig } from "@mcp-craftman/node";
+const mainTemplate = `import { serveMcpApp } from "@mcp-craftman/node";
 
 import { createApp } from "./app.js";
-import { startHttpTransport } from "./server/transports/http.js";
-import { startStdioTransport } from "./server/transports/stdio.js";
 
-const app = createApp();
-const config = loadRuntimeConfig();
-
-if (config.transport === "http") {
-  await startHttpTransport(app, {
-    port: config.port,
-  });
-} else {
-  startStdioTransport(app);
-}
+await serveMcpApp(createApp);
 `;
 
 const registryTemplate = `import { createCapabilityRegistry } from "@mcp-craftman/core";
@@ -79,22 +60,6 @@ import { healthTool } from "../features/health/index.js";
 export const registry = createCapabilityRegistry([
   healthTool,
 ]);
-`;
-
-const httpTransportTemplate = `import { startHttpServer, type HttpServerOptions } from "@mcp-craftman/node";
-import type { McpApp } from "@mcp-craftman/core";
-
-export function startHttpTransport(app: McpApp, options: HttpServerOptions = {}) {
-  return startHttpServer(app, options);
-}
-`;
-
-const stdioTransportTemplate = `import { startStdioServer, type StdioServerOptions } from "@mcp-craftman/node";
-import type { McpApp } from "@mcp-craftman/core";
-
-export function startStdioTransport(app: McpApp, options: StdioServerOptions = {}) {
-  return startStdioServer(app, options);
-}
 `;
 
 const healthIndexTemplate = `export { getHealth } from "./application/get-health.js";

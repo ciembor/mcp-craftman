@@ -4,10 +4,12 @@ import { describe, expect, it } from "vitest";
 describe("@mcp-craftman/node architecture", () => {
   it("keeps the public API behind one barrel entrypoint", async () => {
     await expect(readdir(new URL("../../src", import.meta.url))).resolves.toEqual([
+      "cli",
       "filesystem",
       "index.ts",
       "logging",
       "runtime",
+      "server",
       "transports",
     ]);
 
@@ -20,6 +22,8 @@ describe("@mcp-craftman/node architecture", () => {
   it("uses @mcp-craftman/core only through its package export", async () => {
     const sources = await Promise.all(
       [
+        "../../src/cli/cli-io.ts",
+        "../../src/server/serve-mcp-app.ts",
         "../../src/transports/http/http-server.ts",
         "../../src/transports/stdio/json-rpc.ts",
         "../../src/transports/stdio/stdio-server.ts",

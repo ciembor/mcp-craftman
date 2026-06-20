@@ -1,4 +1,5 @@
 export { defineTool } from "./capabilities/define-tool.js";
+export { readOptionalNumberField, readQueryLimitInput, readRequiredStringField, requireObjectInput } from "./capabilities/input.js";
 export { createCapabilityRegistry, createMcpApp, assertCapabilityRegistry } from "./registry/capability-registry.js";
 export { assertValidRegistry, assertMcpAnnotations, assertToolSchemas, validateRegistry } from "./registry/registry-validation.js";
 export { assertNoDependencyCycles } from "./architecture/dependency-cycles.js";
@@ -22,4 +23,5 @@ export type {
   ToolCapability,
   ToolHandler,
 } from "./capabilities/types.js";
+export type { InputObject, QueryLimitInput } from "./capabilities/input.js";
 export type { SourceFile } from "./architecture/source-files.js";
